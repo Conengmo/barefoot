@@ -146,6 +146,7 @@ public class MatcherKState extends KState<MatcherCandidate, MatcherTransition, M
         if (this.sequence() != null) {
             for (MatcherCandidate candidate : this.sequence()) {
                 JSONObject jsoncandidate = candidate.point().toJSON();
+                jsoncandidate.put("id", candidate.id());
                 if (candidate.transition() != null) {
                     jsoncandidate.put("route",
                             GeometryEngine.geometryToWkt(candidate.transition().route().geometry(),
