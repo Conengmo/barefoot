@@ -113,7 +113,7 @@ public class ServerTest {
         {
             String json = new String(
                     Files.readAllBytes(
-                            Paths.get(ServerTest.class.getResource("x0001-015.json").getPath())),
+                            Paths.get(ServerTest.class.getResource("x0001-015.json").getPath().substring(1))),
                     Charset.defaultCharset());
             sendRequest(host, port, new JSONArray(json));
         }

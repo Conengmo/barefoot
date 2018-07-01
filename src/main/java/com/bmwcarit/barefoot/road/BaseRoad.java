@@ -43,6 +43,7 @@ public class BaseRoad implements Serializable {
     private final float maxspeedForward;
     private final float maxspeedBackward;
     private final float length;
+    private java.lang.String tags;
     private final byte[] geometry;
 
     /**
@@ -62,7 +63,7 @@ public class BaseRoad implements Serializable {
      */
     public BaseRoad(long id, long source, long target, long refid, boolean oneway, short type,
             float priority, float maxspeedForward, float maxspeedBackward, float length,
-            Polyline geometry) {
+            java.lang.String tags, Polyline geometry) {
         this.id = id;
         this.source = source;
         this.target = target;
@@ -73,6 +74,7 @@ public class BaseRoad implements Serializable {
         this.maxspeedForward = maxspeedForward;
         this.maxspeedBackward = maxspeedBackward;
         this.length = length;
+        this.tags = tags;
         this.geometry = OperatorExportToWkb.local()
                 .execute(WkbExportFlags.wkbExportLineString, geometry, null).array();
     }
@@ -94,7 +96,7 @@ public class BaseRoad implements Serializable {
      */
     public BaseRoad(long id, long source, long target, long osmId, boolean oneway, short type,
             float priority, float maxspeedForward, float maxspeedBackward, float length,
-            byte[] wkb) {
+                    java.lang.String tags, byte[] wkb) {
         this.id = id;
         this.source = source;
         this.target = target;
@@ -105,6 +107,7 @@ public class BaseRoad implements Serializable {
         this.maxspeedForward = maxspeedForward;
         this.maxspeedBackward = maxspeedBackward;
         this.length = length;
+        this.tags = tags;
         this.geometry = wkb;
     }
 
@@ -193,6 +196,15 @@ public class BaseRoad implements Serializable {
      */
     public float length() {
         return length;
+    }
+
+    /**
+     * Get custom tags
+     *
+     * @return String with custom tags
+     */
+    public java.lang.String tags() {
+        return tags;
     }
 
     /**
