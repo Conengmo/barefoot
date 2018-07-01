@@ -122,7 +122,7 @@ public class PostGISReader extends PostgresSource implements RoadReader {
 
             String query = "SELECT gid,osm_id,class_id,source,target,"
                     + "length,reverse,maxspeed_forward,maxspeed_backward,"
-                    + "priority, ST_AsBinary(geom) as geom FROM " + table + where + ";";
+                    + "priority,tags, ST_AsBinary(geom) as geom FROM " + table + where + ";";
 
             logger.info("execute query");
             logger.trace("query string: {}", query);
@@ -155,14 +155,15 @@ public class PostGISReader extends PostgresSource implements RoadReader {
                         : Integer.parseInt(result_set.getString(9));
                 float priority = (float) config.get(classId).one().doubleValue();
                 // float priority = Float.parseFloat(result_set.getString(10));
-                byte[] wkb = result_set.getBytes(11);
+                String tags = result_set.getString(11);
+                byte[] wkb = result_set.getBytes(12);
                 Polyline geometry = (Polyline) OperatorImportFromWkb.local().execute(
                         WkbImportFlags.wkbImportDefaults, Type.Polyline, ByteBuffer.wrap(wkb),
                         null);
                 float length = (float) spatial.length(geometry);
 
                 road = new BaseRoad(gid, source, target, osmId, reverse >= 0 ? false : true,
-                        classId, priority, maxspeedForward, maxspeedBackward, length, wkb);
+                        classId, priority, maxspeedForward, maxspeedBackward, length, tags, wkb);
             } while (exclusions != null && exclusions.contains(road.type()));
 
             return road;
