@@ -43,7 +43,7 @@ public class BaseRoad implements Serializable {
     private final float maxspeedForward;
     private final float maxspeedBackward;
     private final float length;
-    private java.lang.String tags;
+    private String tags;
     private final byte[] geometry;
 
     /**
@@ -63,7 +63,7 @@ public class BaseRoad implements Serializable {
      */
     public BaseRoad(long id, long source, long target, long refid, boolean oneway, short type,
             float priority, float maxspeedForward, float maxspeedBackward, float length,
-            java.lang.String tags, Polyline geometry) {
+            String tags, Polyline geometry) {
         this.id = id;
         this.source = source;
         this.target = target;
@@ -96,7 +96,7 @@ public class BaseRoad implements Serializable {
      */
     public BaseRoad(long id, long source, long target, long osmId, boolean oneway, short type,
             float priority, float maxspeedForward, float maxspeedBackward, float length,
-                    java.lang.String tags, byte[] wkb) {
+                    String tags, byte[] wkb) {
         this.id = id;
         this.source = source;
         this.target = target;
@@ -203,7 +203,7 @@ public class BaseRoad implements Serializable {
      *
      * @return String with custom tags
      */
-    public java.lang.String tags() {
+    public String tags() {
         return tags;
     }
 

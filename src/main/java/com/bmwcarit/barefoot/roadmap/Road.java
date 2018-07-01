@@ -115,7 +115,7 @@ public class Road extends AbstractEdge<Road> {
      *
      * @return String with custom tags
      */
-    public java.lang.String tags() {
+    public String tags() {
         return base.tags();
     }
 
