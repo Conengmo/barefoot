@@ -33,7 +33,8 @@ public class MatcherCandidate
      * @param point {@link RoadPoint} object that is point on the map represented by matching
      *        candidate.
      */
-    public MatcherCandidate(RoadPoint point) {
+    public MatcherCandidate(String id, RoadPoint point) {
+        super(id);
         this.point = point;
     }
 
