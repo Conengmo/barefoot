@@ -112,6 +112,7 @@ def create_segments(config, row):
     reverse = -1 if is_oneway(tags) else 1
     maxspeed_forward, maxspeed_backward = maxspeed(tags)
     priority = float(config[key][value][1])
+    tags_out = create_tag_str(tags)
 
     line = ogr.Geometry(ogr.wkbLineString)
     point = ogr.CreateGeometryFromWkb(binascii.unhexlify(way[0][3]))
@@ -131,7 +132,7 @@ def create_segments(config, row):
                 maxspeed_forward,
                 maxspeed_backward,
                 priority,
-                tags['highway'],
+                tags_out,
                 line.ExportToWkt()
             )
             segments.append(segment)
@@ -203,7 +204,13 @@ def _get_maxspeed(tags, key):
         return 'null'
 
 
-# def create_tag_str(tags):
-#
-#
+def create_tag_str(tags):
+    """Create a OSM style tags string with the wanted tags fields."""
+    out = {}
+    for key in ['maxspeed', 'maxspeed:conditional', 'bridge', 'oneway', 'lit',
+                'lanes', 'ref', 'highway', 'turn:lanes']:
+        if key in tags:
+            out[key] = tags[key]
+    return ', '.join(('"{}"=>"{}"'.format(k, v)
+                      for k, v in zip(out.keys(), out.values())))
 
