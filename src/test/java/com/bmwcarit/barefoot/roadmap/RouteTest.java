@@ -69,9 +69,9 @@ public class RouteTest {
 
             List<BaseRoad> osm = new LinkedList<>();
             osm.add(new BaseRoad(1L, 1L, 4L, 1L, false, (short) 1, 1F, 60F, 60F,
-                    (float) spatial.length(geometry1), geometry1));
+                    (float) spatial.length(geometry1), "", geometry1));
             osm.add(new BaseRoad(2L, 4L, 1L, 2L, false, (short) 1, 1F, 60F, 60F,
-                    (float) spatial.length(geometry2), geometry2));
+                    (float) spatial.length(geometry2), "", geometry2));
 
             Graph<Road> map = new Graph<>();
             for (BaseRoad road : osm) {
@@ -154,11 +154,11 @@ public class RouteTest {
 
             List<BaseRoad> osm = new LinkedList<>();
             osm.add(new BaseRoad(1L, 1L, 2L, 1L, false, (short) 1, 1F, 60F, 60F,
-                    (float) spatial.length(geometry1), geometry1));
+                    (float) spatial.length(geometry1), "", geometry1));
             osm.add(new BaseRoad(2L, 2L, 3L, 2L, false, (short) 1, 1F, 60F, 60F,
-                    (float) spatial.length(geometry2), geometry2));
+                    (float) spatial.length(geometry2), "", geometry2));
             osm.add(new BaseRoad(3L, 3L, 4L, 3L, false, (short) 1, 1F, 60F, 60F,
-                    (float) spatial.length(geometry3), geometry3));
+                    (float) spatial.length(geometry3), "", geometry3));
 
             Graph<Road> map = new Graph<>();
             for (BaseRoad road : osm) {
@@ -289,17 +289,17 @@ public class RouteTest {
 
         List<BaseRoad> osm = new LinkedList<>();
         osm.add(new BaseRoad(1L, 1L, 2L, 1L, false, (short) 1, 1F, 60F, 60F,
-                (float) spatial.length(geometry1), geometry1));
+                (float) spatial.length(geometry1), "", geometry1));
         osm.add(new BaseRoad(2L, 3L, 1L, 2L, false, (short) 1, 1F, 60F, 60F,
-                (float) spatial.length(geometry2), geometry2));
+                (float) spatial.length(geometry2), "", geometry2));
         osm.add(new BaseRoad(3L, 4L, 1L, 3L, false, (short) 1, 1F, 60F, 60F,
-                (float) spatial.length(geometry3), geometry3));
+                (float) spatial.length(geometry3), "", geometry3));
         osm.add(new BaseRoad(4L, 1L, 5L, 4L, false, (short) 1, 1F, 60F, 60F,
-                (float) spatial.length(geometry4), geometry4));
+                (float) spatial.length(geometry4), "", geometry4));
         osm.add(new BaseRoad(5L, 2L, 4L, 5L, false, (short) 1, 1F, 60F, 60F,
-                (float) spatial.length(geometry5), geometry5));
+                (float) spatial.length(geometry5), "", geometry5));
         osm.add(new BaseRoad(6L, 5L, 3L, 6L, false, (short) 1, 1F, 60F, 60F,
-                (float) spatial.length(geometry6), geometry6));
+                (float) spatial.length(geometry6), "", geometry6));
 
 
         Graph<Road> map = new Graph<>();
@@ -541,17 +541,17 @@ public class RouteTest {
 
         List<BaseRoad> osm = new LinkedList<>();
         osm.add(new BaseRoad(1L, 1L, 2L, 1L, false, (short) 1, 1F, 60F, 60F,
-                (float) spatial.length(geometry1), geometry1));
+                (float) spatial.length(geometry1), "", geometry1));
         osm.add(new BaseRoad(2L, 3L, 1L, 2L, false, (short) 1, 1F, 60F, 60F,
-                (float) spatial.length(geometry2), geometry2));
+                (float) spatial.length(geometry2), "", geometry2));
         osm.add(new BaseRoad(3L, 4L, 1L, 3L, false, (short) 1, 1F, 60F, 60F,
-                (float) spatial.length(geometry3), geometry3));
+                (float) spatial.length(geometry3), "", geometry3));
         osm.add(new BaseRoad(4L, 1L, 5L, 4L, false, (short) 1, 1F, 60F, 60F,
-                (float) spatial.length(geometry4), geometry4));
+                (float) spatial.length(geometry4), "", geometry4));
         osm.add(new BaseRoad(5L, 2L, 4L, 5L, false, (short) 1, 1F, 60F, 60F,
-                (float) spatial.length(geometry5), geometry5));
+                (float) spatial.length(geometry5), "", geometry5));
         osm.add(new BaseRoad(6L, 5L, 3L, 6L, false, (short) 1, 1F, 60F, 60F,
-                (float) spatial.length(geometry6), geometry6));
+                (float) spatial.length(geometry6), "", geometry6));
 
 
         RoadMap map = new RoadMap();

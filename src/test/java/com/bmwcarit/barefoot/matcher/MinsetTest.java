@@ -75,7 +75,7 @@ public class MinsetTest {
                         Polyline geometry = (Polyline) GeometryEngine.geometryFromWkt(entry.five(),
                                 WktImportFlags.wktImportDefaults, Type.Polyline);
                         roads.add(new BaseRoad(entry.one(), entry.two(), entry.three(), entry.one(),
-                                entry.four(), (short) 0, 0f, 0f, 0f, 0f, geometry));
+                                entry.four(), (short) 0, 0f, 0f, 0f, 0f, "", geometry));
                     }
                 }
 
@@ -210,7 +210,7 @@ public class MinsetTest {
                                 WktImportFlags.wktImportDefaults, Type.Polyline);
                         roads.add(new BaseRoad(entry.one(), entry.two(), entry.three(), entry.one(),
                                 entry.four(), (short) 0, 1.0f, 100.0f, 100.0f,
-                                (float) spatial.length(geometry), geometry));
+                                (float) spatial.length(geometry), "", geometry));
                     }
                 }
 

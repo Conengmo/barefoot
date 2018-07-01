@@ -48,22 +48,22 @@ public class RoadMapTest {
         String p5 = "11.3469701 48.0825356";
 
         List<BaseRoad> osm = new LinkedList<>();
-        osm.add(new BaseRoad(1L, 1L, 2L, 1L, true, (short) 1, 1F, 60F, 60F, 100F,
+        osm.add(new BaseRoad(1L, 1L, 2L, 1L, true, (short) 1, 1F, 60F, 60F, 100F, "",
                 (Polyline) GeometryEngine.geometryFromWkt("LINESTRING(" + p1 + "," + p2 + ")",
                         WktImportFlags.wktImportDefaults, Geometry.Type.Polyline)));
-        osm.add(new BaseRoad(2L, 3L, 1L, 2L, false, (short) 1, 1F, 60F, 60F, 100F,
+        osm.add(new BaseRoad(2L, 3L, 1L, 2L, false, (short) 1, 1F, 60F, 60F, 100F, "",
                 (Polyline) GeometryEngine.geometryFromWkt("LINESTRING(" + p3 + "," + p1 + ")",
                         WktImportFlags.wktImportDefaults, Geometry.Type.Polyline)));
-        osm.add(new BaseRoad(3L, 4L, 1L, 3L, true, (short) 1, 1F, 60F, 60F, 100F,
+        osm.add(new BaseRoad(3L, 4L, 1L, 3L, true, (short) 1, 1F, 60F, 60F, 100F, "",
                 (Polyline) GeometryEngine.geometryFromWkt("LINESTRING(" + p4 + "," + p1 + ")",
                         WktImportFlags.wktImportDefaults, Geometry.Type.Polyline)));
-        osm.add(new BaseRoad(4L, 1L, 5L, 4L, false, (short) 1, 1F, 60F, 60F, 100F,
+        osm.add(new BaseRoad(4L, 1L, 5L, 4L, false, (short) 1, 1F, 60F, 60F, 100F, "",
                 (Polyline) GeometryEngine.geometryFromWkt("LINESTRING(" + p1 + "," + p5 + ")",
                         WktImportFlags.wktImportDefaults, Geometry.Type.Polyline)));
-        osm.add(new BaseRoad(5L, 2L, 4L, 5L, false, (short) 1, 1F, 60F, 60F, 100F,
+        osm.add(new BaseRoad(5L, 2L, 4L, 5L, false, (short) 1, 1F, 60F, 60F, 100F, "",
                 (Polyline) GeometryEngine.geometryFromWkt("LINESTRING(" + p2 + "," + p4 + ")",
                         WktImportFlags.wktImportDefaults, Geometry.Type.Polyline)));
-        osm.add(new BaseRoad(6L, 5L, 3L, 6L, false, (short) 1, 1F, 60F, 60F, 100F,
+        osm.add(new BaseRoad(6L, 5L, 3L, 6L, false, (short) 1, 1F, 60F, 60F, 100F, "",
                 (Polyline) GeometryEngine.geometryFromWkt("LINESTRING(" + p5 + "," + p3 + ")",
                         WktImportFlags.wktImportDefaults, Geometry.Type.Polyline)));
 

@@ -31,7 +31,7 @@ public class RoadPointTest {
     @Test
     public void testJSON() throws JSONException {
         String wkt = "LINESTRING(11.3136273 48.0972002,11.3138846 48.0972999)";
-        BaseRoad osm = new BaseRoad(0L, 1L, 2L, 4L, true, (short) 5, 5.1F, 6.1F, 6.2F, 7.1F,
+        BaseRoad osm = new BaseRoad(0L, 1L, 2L, 4L, true, (short) 5, 5.1F, 6.1F, 6.2F, 7.1F, "",
                 (Polyline) GeometryEngine.geometryFromWkt(wkt, WktImportFlags.wktImportDefaults,
                         Geometry.Type.Polyline));
 
