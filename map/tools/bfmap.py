@@ -46,7 +46,8 @@ class Bfmap(common.Database):
                 reverse double precision NOT NULL,
                 maxspeed_forward integer, 
                 maxspeed_backward integer, 
-                priority double precision NOT NULL
+                priority double precision NOT NULL,
+                tags text
             );
             SELECT AddGeometryColumn(%s, 'geom', 4326, 'LINESTRING', 2);
         """.format(table)
@@ -67,7 +68,7 @@ class Bfmap(common.Database):
 
         rowcount = 0
         roadcount = 0
-        query_template = ("('{}','{}','{}','{}','{}','{}', {}, {},'{}',"
+        query_template = ("('{}','{}','{}','{}','{}','{}', {}, {},'{}','{}',"
                           "ST_GeomFromText('{}',4326))")
         while True:
             rows = db_source.cursor.fetchmany(10000)
@@ -81,7 +82,7 @@ class Bfmap(common.Database):
             vals = ",".join([query_template.format(*seg) for seg in segments])
             query = """
                 INSERT INTO {} (osm_id,class_id,source,target,length,reverse,
-                maxspeed_forward,maxspeed_backward,priority,geom) VALUES {};
+                maxspeed_forward,maxspeed_backward,priority,tags,geom) VALUES {};
             """.format(tgt_table, vals)
             self.execute(query)
             print("{} segments from {} ways inserted.".format(roadcount, rowcount))
@@ -129,6 +130,7 @@ def create_segments(config, row):
                 maxspeed_forward,
                 maxspeed_backward,
                 priority,
+                tags['highway'],
                 line.ExportToWkt()
             )
             segments.append(segment)
@@ -196,4 +198,7 @@ def _get_maxspeed(tags, key):
         return 'null'
 
 
+# def create_tag_str(tags):
+#
+#
 
